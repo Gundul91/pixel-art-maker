@@ -5,15 +5,17 @@
 
 let color="#000";
 
-$("#colorPicker").change(function (){color=$(this).val();});
+document.querySelector("#colorPicker").onchange = function(){color=this.value};
 
-$("#btn_create").click(
+document.querySelector("#btn_create").addEventListener("click",
 function makeGrid() {
-  const h=$("#input_height").val();
-  const w=$("#input_width").val();
-  const t=$("#pixel_canvas");
+  const h=document.querySelector("#input_height").value;
+  const w=document.querySelector("#input_width").value;
+  const t=document.querySelector("#pixel_canvas");
+  //take values when the creation buton is clicked
   let string="";
-  t.children().remove();
+  var child=t.querySelectorAll("td").forEach(function(e){ console.log(e);e.remove();});
+  //clear the table
   for(let r=0; r<h; r++)
   {
     string="<tr>";
@@ -22,27 +24,32 @@ function makeGrid() {
       string+="<td></td>";
     }
     string+="</tr>";
-    t.append(string);
+    t.insertAdjacentHTML('beforeend',string);
   }
-  $("td").mousedown(function(event){
+  addEventListenerList(document.querySelectorAll("td"),"mousedown",function(event){
     switch(event.buttons){
       case 1:
-        $(this).attr("bgcolor",color);
+        this.setAttribute("bgcolor",color);
         break;//color the first td clicked
       case 2:
-        $(this).removeAttr("bgcolor");
+        this.removeAttribute("bgcolor");
         break;//clear the first td clicked
       }
   });
 
-  $("td").mouseover(function(event){
+  addEventListenerList(document.querySelectorAll("td"),"mouseover",function(event){
         switch(event.buttons){
         case 1:
-          $(this).attr("bgcolor",color);
+          this.setAttribute("bgcolor",color);
           break;//color the td under the cursor
         case 2:
-          $(this).removeAttr("bgcolor");
+          this.removeAttribute("bgcolor");
           break;//clear the td under the cursor
         }
   });
 });
+
+function addEventListenerList(list,ev,foo)
+{
+  list.forEach(function(e){e.addEventListener(ev,foo)});
+}

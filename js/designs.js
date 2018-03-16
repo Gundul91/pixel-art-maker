@@ -26,6 +26,7 @@ function makeGrid() {
     string+="</tr>";
     t.insertAdjacentHTML('beforeend',string);
   }
+
   addEventListenerList(document.querySelectorAll("td"),"mousedown",function(event){
     switch(event.buttons){
       case 1:

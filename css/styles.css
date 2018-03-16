@@ -1,11 +1,29 @@
 body {
+  color:white;
     text-align: center;
+    background: url("https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-0.3.5&s=c65f2c115fffe95ec598c8b69aaeeb03&auto=format&fit=crop&w=800&q=80") no-repeat center/cover;
 }
 
 h1 {
     font-family: Monoton;
     font-size: 70px;
     margin: 0.2em;
+}
+
+.l{
+  color:rgb(51, 123, 208);
+}
+
+.p{
+  color:rgb(217, 95, 42);
+}
+
+.a{
+  color:rgb(116, 240, 41);
+}
+
+.m{
+  color:rgb(230, 41, 216);
 }
 
 h2 {
@@ -19,7 +37,7 @@ h2:first-of-type {
 table,
 tr,
 td {
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 table {
@@ -32,6 +50,22 @@ td {
     height: 20px;
 }
 
+tr{
+background-color: hsla(0, 0%, 100%, 0.40);
+}
+
 input[type=number] {
     width: 6em;
+}
+
+@media screen and (max-width:1600px) {
+  body{
+    min-height: 80vw;
+  }
+}
+
+@media screen and (max-width:1000px) {
+  body{
+    min-height: 120vw;
+  }
 }

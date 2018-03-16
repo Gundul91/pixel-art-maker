@@ -6,7 +6,7 @@
 let color="#000";
 
 document.querySelector("#colorPicker").onchange = function(){color=this.value};
-
+//i've not used arrow version because "this" doesn't work
 document.querySelector("#btn_create").addEventListener("click",
 function makeGrid() {
   const h=document.querySelector("#input_height").value;
@@ -14,7 +14,7 @@ function makeGrid() {
   const t=document.querySelector("#pixel_canvas");
   //take values when the creation buton is clicked
   let string="";
-  var child=t.querySelectorAll("td").forEach(function(e){ console.log(e);e.remove();});
+  var child=t.querySelectorAll("td").forEach((e)=>e.remove());
   //clear the table
   for(let r=0; r<h; r++)
   {
@@ -34,22 +34,22 @@ function makeGrid() {
       case 2:
         this.removeAttribute("bgcolor");
         break;//clear the first td clicked
-      }
+    }
   });
 
   addEventListenerList(document.querySelectorAll("td"),"mouseover",function(event){
-        switch(event.buttons){
-        case 1:
-          this.setAttribute("bgcolor",color);
-          break;//color the td under the cursor
-        case 2:
-          this.removeAttribute("bgcolor");
-          break;//clear the td under the cursor
-        }
+    switch(event.buttons){
+      case 1:
+        this.setAttribute("bgcolor",color);
+        break;//color the td under the cursor
+      case 2:
+        this.removeAttribute("bgcolor");
+        break;//clear the td under the cursor
+    }
   });
 });
 
 function addEventListenerList(list,ev,foo)
 {
-  list.forEach(function(e){e.addEventListener(ev,foo)});
+  list.forEach((e)=>e.addEventListener(ev,foo));
 }

@@ -5,16 +5,17 @@
 
 let color="#000";
 
-document.querySelector("#colorPicker").onchange = function(){color=this.value};
+document.querySelector("#color-picker").onchange = function(){color=this.value};
 //i've not used arrow version because "this" doesn't work
-document.querySelector("#btn_create").addEventListener("click",
+document.querySelector("#btn-create").addEventListener("click",
 function makeGrid() {
-  const h=document.querySelector("#input_height").value;
-  const w=document.querySelector("#input_width").value;
-  const t=document.querySelector("#pixel_canvas");
+  const h=document.querySelector("#input-height").value;
+  const w=document.querySelector("#input-width").value;
+  const t=document.querySelector("#pixel-canvas");
   //take values when the creation buton is clicked
   let string="";
   var child=t.querySelectorAll("td").forEach((e)=>e.remove());
+
   //clear the table
   for(let r=0; r<h; r++)
   {
@@ -53,4 +54,4 @@ function makeGrid() {
 function addEventListenerList(list,ev,foo)
 {
   list.forEach((e)=>e.addEventListener(ev,foo));
-}
+} //function for add eventlistener to a list of elements

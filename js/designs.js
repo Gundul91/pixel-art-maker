@@ -54,4 +54,4 @@ function makeGrid() {
 function addEventListenerList(list,ev,foo)
 {
   list.forEach((e)=>e.addEventListener(ev,foo));
-} //function for add eventlistener to a list of elements
+}; //function for add eventlistener to a list of elements
